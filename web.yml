@@ -1,0 +1,16 @@
+- hosts: all
+  tasks: 
+#installing httpd software  
+   - package: 
+       name: "httpd"
+       state: present
+#copying pages from controller node
+   - copy:
+       src: "/var/www/html/web.html"
+       dest: "/var/www/html/index.html"
+
+#service start 
+   - service: 
+       name: "httpd"
+       state: started
+
